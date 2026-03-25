@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Syntecxhub Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🔥 SYNTECXHUB CALCULATOR 🔥</h2>
+
+<input type="number" id="num1" placeholder="Enter first number">
+<input type="number" id="num2" placeholder="Enter second number">
+
+<br>
+
+<button onclick="calculate('+')">+</button>
+<button onclick="calculate('-')">-</button>
+<button onclick="calculate('*')">*</button>
+<button onclick="calculate('/')">/</button>
+<button onclick="clearData()">Clear</button>
+
+<h3 id="result"></h3>
+
+<script>
+function calculate(op) {
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    let result = "";
+
+    if (isNaN(a) || isNaN(b)) {
+        result = "Enter valid numbers!";
+    } 
+    else if (op === '+') {
+        result = a + b;
+    } 
+    else if (op === '-') {
+        result = a - b;
+    } 
+    else if (op === '*') {
+        result = a * b;
+    } 
+    else if (op === '/') {
+        if (b === 0) {
+            result = "Division by Zero Error!";
+        } else {
+            result = a / b;
+        }
+    }
+
+    document.getElementById("result").innerText = "Result: " + result;
+}
+
+function clearData() {
+    document.getElementById("num1").value = "";
+    document.getElementById("num2").value = "";
+    document.getElementById("result").innerText = "";
+}
+</script>
+
+</body>
+</html>
